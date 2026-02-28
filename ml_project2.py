@@ -6,3 +6,11 @@ a probability machine which lerns the pattern based on the previous words and pr
 
 #working with Marry Shelly's "Frankenstein or The Modern Prometheus"; downloaded from 'The Project Gutenberg'
 
+try:
+    with open('frankenstein.txt','r', encoding='utf-8') as f:
+        data = f.read()
+        print(f"No. of characters: {len(data)}")
+        d = data.split()
+        print(f"No. of words (punctuation included): {len(d)}")
+except FileNotFoundError:
+    print("File not found.")
