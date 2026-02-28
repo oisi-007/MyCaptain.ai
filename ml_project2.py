@@ -10,6 +10,7 @@ import re
 
 try:
     with open('frankenstein.txt','r', encoding='utf-8') as f:
+        #cleaning the text
         data = f.read()
         data = re.split(r"\*\*\* START OF.*?\*\*\*", data, maxsplit=1)[-1]       #removing gutenberg header
         data = re.split(r"\*\*\* END OF.*?\*\*\*", data, maxsplit=1)[0]       #removing gutenberg footer
@@ -21,6 +22,6 @@ try:
         print(f"No. of characters: {len(data)}")
         d = data.split()
         print(f"No. of words (punctuation included): {len(d)}")
-        print(f"Example: {d[:100]}")
+        #print(f"Example: {d[:100]}")
 except FileNotFoundError:
     print("File not found.")
