@@ -30,6 +30,7 @@ df["target"] = data['target']
 #print(df.head())       #gives first 5 records from the dataset
 #print(df.describe())   #gives meta-data of the data from the dataset (the min val., max val., count, etc)
 
+'''visual representation of distribution of data'''
 # col = "sepal length (cm)"
 # df[col].hist()                  #gives the histogram of a pandas series (a column of a pandas dataframe)
 # plt.suptitle(col)               #gives the column name as the (super) title of the visual distributuion
@@ -50,3 +51,32 @@ df["target"] = data['target']
 # plt.suptitle(col)               
 # plt.show()
 
+
+'''relationshop of the data features with the target'''
+#create new column with species name
+df['target_name']=df['target'].map({0:'setosa',1:'versicolor',2:'virginica'})
+#print(df.head())
+
+# col = "sepal length (cm)"
+# print(sns.relplot(x=col, y='target', hue='target_name',data=df))
+# plt.suptitle(col, y=1)
+# plt.show()
+
+# col = "sepal width (cm)"
+# print(sns.relplot(x=col, y='target', hue='target_name',data=df))
+# plt.suptitle(col, y=1)
+# plt.show()
+
+# col = "petal length (cm)"
+# print(sns.relplot(x=col, y='target', hue='target_name',data=df))
+# plt.suptitle(col, y=1)
+# plt.show()
+
+# col = "petal width (cm)"
+# print(sns.relplot(x=col, y='target', hue='target_name',data=df))
+# plt.suptitle(col, y=1)
+# plt.show()
+
+'''Expalantory Data Analysis (EDA) - Pairplots'''
+sns.pairplot(df, hue='target_name')
+plt.show()
